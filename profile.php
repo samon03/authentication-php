@@ -1,3 +1,30 @@
+<?php
+
+  session_start();
+  require 'controllers/db_credentials.php';
+
+  if (isset($_SESSION['email'])) 
+  {
+    $email = $_SESSION['email'];
+    
+    $qry =  $mysqli->query("SELECT * FROM `user` WHERE email = '$email'");
+
+    while ($row = $qry->fetch_assoc()) 
+    {
+      $fname = $row['firstname'];
+      $lname = $row['lastname'];
+      $phn = $row['phone'];
+      $address = $row['address'];
+      $dob = date("F d, Y", strtotime($row['dob']));
+      $email = $row['email'];
+    }
+    
+  }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,11 +51,11 @@
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-                      Username
+                      <?php echo $lname ?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li><a class="dropdown-item" href="#">Change Password</a></li>
-                      <li><a class="dropdown-item" href="#">Logout</a></li>
+                      <li><a class="dropdown-item" href="controllers/logout.php">Logout</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -37,6 +64,7 @@
           </nav>
 
          <div class="container-fluid">
+           
           <div class="row sidebar">
             <div class="col-md-2 text-center  px-0 mx-0">
               <ul class="list-group list-group-flush">
@@ -46,6 +74,7 @@
                 <li class="list-group-item"></li>
               </ul> 
            </div>
+
            <div class="col-md-10 px-0 mx-0">
              <div class="text-center user">
                <h3>User Profile</h3>
@@ -65,7 +94,9 @@
                                       <span class="h-600">:</span>
                                     </div>
                                     <div class="col-md-7">
-                                        <span class="h-600">Samon</span>
+                                        <span class="h-600">
+                                          <?php echo $fname?>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="row g-3">
@@ -76,7 +107,7 @@
                                       <span class="h-600">:</span>
                                     </div>
                                     <div class="col-md-7">
-                                        <span class="h-600">Samon</span>
+                                        <span class="h-600"><?php echo $lname?></span>
                                     </div>
                                 </div>
                                 <div class="row g-3">
@@ -87,7 +118,7 @@
                                       <span class="h-600">:</span>
                                     </div>
                                     <div class="col-md-7">
-                                        <span class="h-600">Samon</span>
+                                        <span class="h-600"><?php echo $address?></span>
                                     </div>
                                 </div>
                                 <div class="row g-3">
@@ -98,7 +129,7 @@
                                       <span class="h-600">:</span>
                                     </div>
                                     <div class="col-md-7">
-                                        <span class="h-600">Samon</span>
+                                        <span class="h-600"><?php echo $phn?></span>
                                     </div>
                                 </div>
                                 <div class="row g-3">
@@ -109,7 +140,7 @@
                                       <span class="h-600">:</span>
                                     </div>
                                     <div class="col-md-7">
-                                        <span class="h-600">Samon</span>
+                                        <span class="h-600"><?php echo $email?></span>
                                     </div>
                                 </div>
                                 <div class="row g-3">
@@ -120,7 +151,7 @@
                                       <span class="h-600">:</span>
                                     </div>
                                     <div class="col-md-7">
-                                        <span class="h-600">Samon</span>
+                                        <span class="h-600"><?php echo $dob?></span>
                                     </div>
                                 </div>
                                

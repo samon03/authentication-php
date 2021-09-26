@@ -19,29 +19,31 @@
                 <i class="fas fa-address-book fa-3x"></i>
                 <h4 class="h-600">Login Panel</h4>
                 <div class="card px-4 py-5 my-3">
-                    <div class="mb-3">
-                        <h6 for="email" class="form-label font-18 h-500 mb-3">Email Address</h6>
-                        <input type="text" name="email" class="form-control">
-                    </div>
-                    
-                    <div>
-                        <h6 for="password" class="form-label font-18 h-500 mb-3">Password</h6>
-                        <input type="password" name="password" class="form-control">
-                    </div>
-
-                    <div class="row my-5">
-                        <div class="col-md-8 mx-auto">
-                            <div class="d-flex justify-content-between">
-                                <div class="">
-                                    <button type="button" class="btn btn-light">Login</button>
-                                </div>
-                                <div class="">
-                                    <button type="button" class="btn btn-light">Clear</button>
+                    <form action="controllers/login.php" method="POST">
+                        <div class="mb-3">
+                            <h6 for="email" class="form-label font-18 h-500 mb-3">Email Address</h6>
+                            <input type="text" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div>
+                            <h6 for="password" class="form-label font-18 h-500 mb-3">Password</h6>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
+    
+                        <div class="row my-5">
+                            <div class="col-md-8 mx-auto">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <input type="submit" class="btn btn-light" name="loginbtn" value="Login"/>
+                                    </div>
+                                    <div>
+                                        <input type="submit" class="btn btn-light" name="clearbtn" value="Clear" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
+    
+                    </form>
                     <div>
                        <span class="font-18 h-500">Are you new here? <a href="reg.html">Register now</a></span>
                     </div>

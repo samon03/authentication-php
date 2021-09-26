@@ -1,3 +1,25 @@
+<?php
+
+  session_start();
+  require 'controllers/db_credentials.php';
+
+  if (isset($_SESSION['email'])) 
+  {
+    $email = $_SESSION['email'];
+  }
+
+  $qry =  $mysqli->query("SELECT * FROM `user` WHERE email = '$email'");
+
+  while ($row = $qry->fetch_assoc()) 
+  {
+    $fname = $row['firstname'];
+    $lname = $row['lastname'];
+  }
+  
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +46,7 @@
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-                      Username
+                       <?php echo $fname ." ". $lname ?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li><a class="dropdown-item" href="#">Change Password</a></li>
@@ -38,14 +60,7 @@
 
          <div class="container-fluid">
           <div class="row sidebar">
-            <div class="col-md-2 text-center  px-0 mx-0">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">User Profile</li>
-                <li class="list-group-item">Change Password</li>
-                <li class="list-group-item">User List</li>
-                <li class="list-group-item"></li>
-              </ul> 
-           </div>
+              <?php include 'nav.php' ?>
            <div class="col-md-10 px-0 mx-0">
               <div class="user">
                 <div class="container-fluid">
@@ -71,12 +86,32 @@
                   </tr>
                 </thead>
                 <tbody>
+
+                  <?php
+
+                  $qry =  $mysqli->query("SELECT firstname, lastname, email, TIMESTAMPDIFF(YEAR, dob, CURDATE()) as age, phone FROM `user`");
+
+                  while ($row = $qry->fetch_assoc()) 
+                  {
+                    $fname = $row['firstname'];
+                    $lname = $row['lastname'];
+                    $phn = $row['phone'];
+                    $age = $row['age'];
+                    $email = $row['email'];
+                  
+                  ?>
+
                   <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td><?php echo $fname ." ". $lname ?></td>
+                    <td><?php echo $age ?></td>
+                    <td><?php echo $email ?></td>
+                    <td><?php echo $phn ?></td>
                   </tr>
+
+                  <?php
+                  }
+                  
+                  ?>
                 </tbody>
               </table>
 

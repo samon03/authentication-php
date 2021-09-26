@@ -5,7 +5,7 @@
     </li>
     <li class="list-group-item">Change Password</li>
     <li class="list-group-item">
-        <a href="userlist.html" class="rmv" >User List</a>
+        <a href="userlist.php" class="rmv" >User List</a>
     </li>
     <li class="list-group-item"></li>
     </ul> 

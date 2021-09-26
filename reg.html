@@ -21,8 +21,7 @@
                   <h4 class="h-600">Registration Panel</h4>
                 </div>
                 <div class="card px-4 py-5 my-3">
-
-                    <div class="">
+                    <form action="controllers/register.php" method="POST">
                         <div class="row g-3">
                             <div class="col-md-4">
                               <label class="font-18 h-500 col-form-label">First Name</label>
@@ -60,7 +59,8 @@
                               <label class="font-18 h-500 col-form-label">Email</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" name="email" class="form-control">
+                                <input type="text" name="email" class="form-control check">
+                                <small class="msg" style="color: red;">It's Avalible</small>
                             </div>
                         </div>
                         <div class="row g-3">
@@ -84,16 +84,16 @@
                             <div class="col-md-8 mx-auto">
                                 <div class="d-flex justify-content-between">
                                     <div class="">
-                                        <button type="button" class="btn btn-light wd">Register</button>
+                                        <input type="submit" class="btn btn-light wd" name="regbtn" value="Register"/>
                                     </div>
-                                    <div class="">
-                                        <button type="button" class="btn btn-light wd">Cancel</button>
+                                    <div>
+                                        <input type="button" class="btn btn-light wd" name="cancelbtn" value="Cancel"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                        
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

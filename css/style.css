@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.h-500 {
+    font-weight: 500;
+}
+
+.h-600 {
+    font-weight: 600;
+}
+
+.btn-light {
+    width: 80px;
+    border: 1px solid black;
+    box-shadow:  5px 5px black;
+}
+
+.btn-light:hover {
+    background-color: #237bfd;
+    border: 1px solid black;
+}
+
+.wd {
+    width: 100px;
+}
+
+.dropdown {
+    display: inline-block;
+}
+.dropdown-menu .dropdown-item {
+    font-size: 14px;
+    text-align: center;
+}
+
+.dropdown-menu {
+    z-index: 1 !important;
+    min-width: 160px !important;
+    position: absolute;
+    right: 0;
+}
+
+.user {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid black;
+}
+
+.sidebar .col-md-2 {
+    border-right: 1px solid black;
+    height: 550px;
+}
+
+.list-group-item {
+    border: 1px solid black;
+}
+
+
+.search {
+    position: relative;
+}
+
+.search input {
+    text-indent: 25px;
+    border: 2px solid black
+}
+
+.search .fa-search {
+    position: absolute;
+    top: 13px;
+    left: 16px
+}
+
+thead {
+    background-color: #212529;
+    color: white;
+}

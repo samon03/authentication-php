@@ -51,7 +51,7 @@
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-                      <?php echo $lname ?>
+                      <?php echo $fname ." ". $lname ?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li><a class="dropdown-item" href="#">Change Password</a></li>
@@ -66,14 +66,8 @@
          <div class="container-fluid">
            
           <div class="row sidebar">
-            <div class="col-md-2 text-center  px-0 mx-0">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">User Profile</li>
-                <li class="list-group-item">Change Password</li>
-                <li class="list-group-item">User List</li>
-                <li class="list-group-item"></li>
-              </ul> 
-           </div>
+            
+            <?php include 'nav.php' ?>
 
            <div class="col-md-10 px-0 mx-0">
              <div class="text-center user">

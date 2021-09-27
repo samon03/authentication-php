@@ -137,7 +137,7 @@
     
     <script type="text/javascript">
         $(document).ready(function(){
-          $("#search_text").keyup(function(){
+          $("#search_text").keypress(function(){
             var search = $(this).val();
 
             $.ajax({

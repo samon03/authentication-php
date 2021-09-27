@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $('.check').blur(function(e){
+    $('.check').keyup(function(e){
 
         var mail = $('.check').val();
 

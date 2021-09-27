@@ -69,15 +69,14 @@
                       <h3>User List</h3>
                     </div>
                     <div class="col-md-4 ms-auto">
-                      <div class="search"> <i class="fa fa-search"></i> 
-                      <input type="text" id="search_text" class="form-control" placeholder="Search"></div>
+                      <div class="search"> <i class="fa fa-search"></i> <input type="text" id="search" class="form-control" placeholder="Search"></div>
                     </div>
                   </div>
                 </div>
               </div>
               
 
-              <table class="table table-striped" id="table_data">
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">Name </th>
@@ -86,19 +85,45 @@
                     <th scope="col">Phone</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="list">
 
                   <?php
 
-                  $qry =  $mysqli->query("SELECT firstname, lastname, email, TIMESTAMPDIFF(YEAR, dob, CURDATE()) as age, phone FROM `user`");
+                  if (isset($_POST['search'])) {
+                      $skey = $_POST['search'];
 
-                  while ($row = $qry->fetch_assoc()) 
-                  {
-                    $fname = $row['firstname'];
-                    $lname = $row['lastname'];
-                    $phn = $row['phone'];
-                    $age = $row['age'];
-                    $email = $row['email'];
+                      $qry1 = $mysqli->query("SELECT firstname, lastname, email, TIMESTAMPDIFF(YEAR, dob, CURDATE()) as age, phone 
+                        FROM `user` WHERE firstname LIKE '%$skey%' OR lastname LIKE '%$skey%' ");
+
+                      if(mysqli_num_rows($qry1) > 0) {
+                        while($row = mysqli_num_rows($qry1)) 
+                        {
+                            echo "<tr>
+                            <td>" . $row['firstname'] . " ". $row['lastname'] ."</td>
+                            <td>" . $row['age'] ."</td>
+                            <td>" . $row['email'] ."</td>
+                            <td>" . $row['phone'] ."</td>
+                            </tr>";
+
+
+                        }
+                      }
+                      else {
+                        echo "<tr><td>No result found</td></tr>";
+                      }
+                  }
+                  else {
+
+                    $qry =  $mysqli->query("SELECT firstname, lastname, email, TIMESTAMPDIFF(YEAR, dob, CURDATE()) as age, phone FROM `user`");
+
+                  
+                    while ($row = $qry->fetch_assoc()) 
+                    {
+                      $fname = $row['firstname'];
+                      $lname = $row['lastname'];
+                      $phn = $row['phone'];
+                      $age = $row['age'];
+                      $email = $row['email'];
                   
                   ?>
 
@@ -122,7 +147,6 @@
            </div>
          </div>
     </div>
-
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -132,27 +156,7 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
     
-    <script type="text/javascript">
-        $(document).ready(function(){
-          $("#search_text").keyup(function(){
-            var search = $(this).val();
-
-            $.ajax({
-              url: 'controllers/action.php',
-              method: 'post',
-              data: {
-                query: search
-              },
-              success: function(response) {
-                $("#table_data").html(response);
-              }
-            })
-          })
-        });
-    </script>
-    
+    <script src="js/search.js"></script>
 </body>
 </html>

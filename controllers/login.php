@@ -21,7 +21,7 @@
         
         else
         {
-            echo "<small style='color: red;'>You have entered wrong email/password! </small>";        
+            echo "<h3 style='color: red;'>You have entered wrong email/password! </h3>";        
         }
     }
 

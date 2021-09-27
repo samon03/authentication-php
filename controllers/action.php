@@ -18,28 +18,17 @@
     }
 
     if(mysqli_num_rows($qry) > 0) {
-        $output = "<thead>
-        <tr>
-          <th scope='col'>Name </th>
-          <th scope='col'>Age</th>
-          <th scope='col'>Email</th>
-          <th scope='col'>Phone</th>
-        </tr>
-      </thead>
-      <tbody>";
 
       while ($row=$qry->fetch_assoc()) 
       {
 
-        $output .= "
+        $output = "
             <tr>
                 <td>" . $row['firstname'] . " ". $row['lastname'] ."</td>
                 <td>" . $row['age'] ."</td>
                 <td>" . $row['email'] ."</td>
                 <td>" . $row['phone'] ."</td>
             </tr>";
-
-        $output .="</tbody>"; 
         
         echo $output;
 

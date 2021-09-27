@@ -77,7 +77,7 @@
               </div>
               
 
-              <table class="table table-striped" id="table_data">
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">Name </th>
@@ -86,7 +86,7 @@
                     <th scope="col">Phone</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="table_data">
 
                   <?php
 

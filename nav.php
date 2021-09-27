@@ -3,7 +3,9 @@
     <li class="list-group-item">
         <a href="profile.php" class="rmv">User Profile</a>
     </li>
-    <li class="list-group-item">Change Password</li>
+    <li class="list-group-item">
+        <a href="change_password.php" class="rmv" >Change Password</a>
+    </li>
     <li class="list-group-item">
         <a href="userlist.php" class="rmv" >User List</a>
     </li>

@@ -50,7 +50,7 @@
                       <?php echo $fname ." ". $lname ?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Change Password</a></li>
+                      <li><a class="dropdown-item" href="change_password.php">Change Password</a></li>
                       <li><a class="dropdown-item" href="controllers/logout.php">Logout</a></li>
                     </ul>
                   </li>

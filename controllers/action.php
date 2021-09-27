@@ -35,6 +35,6 @@
       }
     }
     else {
-        echo "<h3>No records</h3>";
+        echo "<h4 style='padding: 5px'>No records found!</h4>";
     }
 ?>
